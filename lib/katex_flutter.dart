@@ -85,7 +85,7 @@ class KaTeXState extends State<KaTeX> {
               child: Math.tex(
                 match.group(2)!.trim().replaceAll(RegExp(':dollar:'), r'\$'),
                 mathStyle: MathStyle.text,
-                textStyle: laTexStyle,
+                textStyle: widget.laTexStyle,
               ),
             ),
           ),
