@@ -8,11 +8,15 @@ import 'package:flutter_math_fork/flutter_math.dart';
 class KaTeX extends StatefulWidget {
   const KaTeX({
     required this.laTeXCode,
+    this.laTexStyle,
     Key? key,
   }) : super(key: key);
 
   /// a Text used for the rendered code as well as for the style
   final Text laTeXCode;
+
+  /// optional [CaTeX] text styling
+  final TextStyle? laTexStyle;
 
   @override
   State<KaTeX> createState() => KaTeXState();
@@ -81,6 +85,7 @@ class KaTeXState extends State<KaTeX> {
               child: Math.tex(
                 match.group(2)!.trim().replaceAll(RegExp(':dollar:'), r'\$'),
                 mathStyle: MathStyle.text,
+                textStyle: laTexStyle,
               ),
             ),
           ),
